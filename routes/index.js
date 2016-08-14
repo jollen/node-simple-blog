@@ -1,5 +1,6 @@
 var express = require('express');
 var cors = require('cors');
+var showdown  = require('showdown');
 var router = express.Router();
 
 var posts = {};
@@ -40,12 +41,12 @@ router.get('/1/post/:id', function(req, res, next) {
 router.post('/1/post', ensureAuthenticated);
 router.post('/1/post', cors());
 router.post('/1/post', function(req, res, next) {
-	var title = req.body.title; 
-	var content = req.body.content;
+	var converter = new showdown.Converter();
 
 	var doc = {
 		subject: req.body.title,
 		body: req.body.content,
+		html: converter.makeHtml(req.body.content),
 		userCreated: {
 			id: req.user.id,
 			name: req.user.username

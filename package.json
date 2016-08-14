@@ -36,6 +36,7 @@
     "passport-tumblr": "0.1.x",
     "passport-twitter": "1.x.x",
     "serve-static": "1.10.x",
+    "showdown": "^1.4.2",
     "underscore": "1.x.x"
   },
   "devDependencies": {

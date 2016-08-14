@@ -73,4 +73,33 @@ router.delete('/1/post/:id', function(req, res, next) {
 	});
 });
 
+/**
+ * Like one post by ID
+ */
+router.put('/1/post/:id/like', ensureAuthenticated);
+router.put('/1/post/:id/like', cors());
+router.put('/1/post/:id/like', function(req, res, next) {
+	var id = req.params.id;
+
+	var conditions = {
+		_id: id
+	};
+
+	var fieldsToSet = {
+		$push: { likes: req.user.id }
+	};
+
+	req.app.db.models.Post.findOneAndUpdate(conditions, fieldsToSet, function(err, post) {
+		if (err) res.send(err);
+		res.send(post);
+	});	
+});
+
 module.exports = router;
+
+
+
+
+
+
+

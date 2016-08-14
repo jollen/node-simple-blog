@@ -5,9 +5,9 @@
 
 * v1.0
  * Post CRUD
- * File upload
  * Markdown parser
- * Stars
+ * File upload
+ * Like
 
 * v2.0
  * time to read

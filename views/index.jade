@@ -9,11 +9,11 @@ block body
   header
     .header-content
       .header-content-inner
-        h1#homeHeading Your Favorite Source of Free Bootstrap Themes
+        h1#homeHeading Simple Blogging Platform
         hr
         p
-          | Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!
-        a.btn.btn-primary.btn-xl.page-scroll(href='#about') Find Out More
+          | Write your blog in Markdown.
+        a.btn.btn-primary.btn-xl.page-scroll(href='/blog/', target='_blank') Create New Blog
 
   section#about.bg-primary
     .container
@@ -24,6 +24,18 @@ block body
           p.text-faded
             | Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!
           a.page-scroll.btn.btn-default.btn-xl.sr-button(href='#services') Get Started!
+
+  section
+    .container
+      .row
+        .col-lg-12.text-center
+          h2.section-heading Highlight Articles
+          hr.primary
+      .row
+        .col-lg-8.col-lg-offset-2
+          each post in posts
+            h3 
+              a(href!='/post/#{post._id}') #{post.subject}
 
   section#services
     .container

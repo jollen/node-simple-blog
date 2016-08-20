@@ -3,8 +3,6 @@ var cors = require('cors');
 var showdown  = require('showdown');
 var router = express.Router();
 
-var posts = {};
-
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();

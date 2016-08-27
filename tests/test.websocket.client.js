@@ -1,3 +1,5 @@
+// {"endpoint":"wot.city","key":"temperature","temperature":8,"temp":8}
+
 var WebSocketClient = require('websocket').client;
 
 var client = new WebSocketClient();

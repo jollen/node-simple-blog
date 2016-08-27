@@ -13,6 +13,7 @@ block body
         hr
         p
           | Write your blog in Markdown.
+        h3(data-posts) 100
         a.btn.btn-primary.btn-xl.page-scroll(href='/blog/', target='_blank') Create New Blog
 
   section#about.bg-primary
@@ -32,10 +33,16 @@ block body
           h2.section-heading Highlight Articles
           hr.primary
       .row
-        .col-lg-8.col-lg-offset-2
-          each post in posts
-            h3 
-              a(href!='/post/#{post._id}') #{post.subject}
+        each post in posts
+          .col-lg-4
+            div.thumbnail
+              img(src!='https://placeimg.com/640/480/any?#{post._id}', alt='')
+              h3 #{post.subject}
+              p
+                a.btn.btn-primary(href!='/post/#{post._id}') Read
+              p 
+                i.fa.fa-thumbs-up(style='margin-right: 3px;')
+                | #{post.likes.length}
 
   section#services
     .container
